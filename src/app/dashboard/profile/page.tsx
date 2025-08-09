@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
+  CardDescription as CardDescriptionComponent,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -59,7 +60,7 @@ export default function ProfilePage() {
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardHeader>
             <CardTitle>Your Profile</CardTitle>
-            <CardDescription>Manage your account settings and personal information.</CardDescription>
+            <CardDescriptionComponent>Manage your account settings and personal information.</CardDescriptionComponent>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="flex items-center gap-4">
