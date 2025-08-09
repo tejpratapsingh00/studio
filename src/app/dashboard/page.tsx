@@ -1,7 +1,7 @@
 import { ImpactCard } from '@/components/dashboard/impact-card';
 import { ActivityFeed } from '@/components/dashboard/activity-feed';
 import { Badges } from '@/components/dashboard/badges';
-import { Co2, Recycle, Leaf, Award } from 'lucide-react';
+import { Factory, Recycle, Leaf, Award } from 'lucide-react';
 
 export default function DashboardPage() {
   return (
@@ -21,7 +21,7 @@ export default function DashboardPage() {
         <ImpactCard
           title="CO₂ Saved"
           value="314.2 kg"
-          icon={Co2}
+          icon={Factory}
           description="Equivalent to planting 3 trees"
         />
         <ImpactCard
