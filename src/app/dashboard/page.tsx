@@ -1,6 +1,7 @@
 import { ImpactCard } from '@/components/dashboard/impact-card';
 import { ActivityFeed } from '@/components/dashboard/activity-feed';
 import { Badges } from '@/components/dashboard/badges';
+import { MarketPrices } from '@/components/dashboard/market-prices';
 import { Factory, Recycle, Leaf, Award } from 'lucide-react';
 
 export default function DashboardPage() {
@@ -45,6 +46,9 @@ export default function DashboardPage() {
         <div>
           <Badges />
         </div>
+      </div>
+       <div className="grid gap-8">
+        <MarketPrices />
       </div>
     </div>
   );

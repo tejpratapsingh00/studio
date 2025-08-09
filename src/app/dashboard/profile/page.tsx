@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription as CardDescriptionComponent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -60,7 +60,7 @@ export default function ProfilePage() {
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardHeader>
             <CardTitle>Your Profile</CardTitle>
-            <CardDescriptionComponent>Manage your account settings and personal information.</CardDescriptionComponent>
+            <CardDescription>Manage your account settings and personal information.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="flex items-center gap-4">
@@ -127,7 +127,7 @@ export default function ProfilePage() {
             />
           </CardContent>
           <CardFooter className="border-t px-6 py-4">
-            <Button type="submit" className="bg-accent hover:bg-accent/90">Save Changes</Button>
+            <Button type="submit">Save Changes</Button>
           </CardFooter>
         </form>
       </Form>

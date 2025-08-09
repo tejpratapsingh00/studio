@@ -65,7 +65,7 @@ export default function RewardsPage() {
                 <CardDescription>Your current rewards balance.</CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="text-5xl font-bold text-accent">2,514</div>
+                <div className="text-5xl font-bold text-primary">2,514</div>
                 <p className="text-muted-foreground">Keep recycling to earn more!</p>
             </CardContent>
         </Card>
@@ -82,7 +82,7 @@ export default function RewardsPage() {
                       <p className="font-semibold">{option.title}</p>
                       <p className="text-sm text-muted-foreground">{option.points.toLocaleString()} points</p>
                   </div>
-                  <Button className="bg-accent hover:bg-accent/90">{option.value}</Button>
+                  <Button>{option.value}</Button>
               </Card>
             ))}
           </CardContent>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -70,9 +69,10 @@ export function WasteSubmissionForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       image: undefined,
-      category: '',
+      category: undefined,
       weight: 0,
-      pickupTime: '',
+      pickupDate: undefined,
+      pickupTime: undefined,
     },
   });
 
@@ -146,8 +146,8 @@ export function WasteSubmissionForm() {
                     <Image
                       src={imagePreview}
                       alt="Waste preview"
-                      layout="fill"
-                      objectFit="contain"
+                      fill={true}
+                      style={{objectFit:"contain"}}
                       className="rounded-lg"
                     />
                   ) : (
@@ -164,7 +164,7 @@ export function WasteSubmissionForm() {
         />
 
         {(isPredicting || predictionResult || predictionError) && (
-          <Card className="bg-background">
+          <Card className="bg-background/50">
             <CardHeader className="flex flex-row items-center gap-2">
               <Bot className="h-6 w-6" />
               <CardTitle>AI Waste Identifier</CardTitle>
@@ -299,7 +299,7 @@ export function WasteSubmissionForm() {
             )}
           />
         </div>
-        <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+        <Button type="submit" className="w-full">
           Schedule Pickup
         </Button>
       </form>

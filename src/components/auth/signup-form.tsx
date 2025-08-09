@@ -90,7 +90,7 @@ export function SignupForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+          <Button type="submit" className="w-full">
             Create an account
           </Button>
           <Button variant="outline" className="w-full">

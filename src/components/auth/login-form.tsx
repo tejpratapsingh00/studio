@@ -83,7 +83,7 @@ export function LoginForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+          <Button type="submit" className="w-full">
             Login
           </Button>
           <Button variant="outline" className="w-full">

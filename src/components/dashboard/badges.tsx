@@ -17,9 +17,9 @@ export function Badges() {
       </CardHeader>
       <CardContent className="grid gap-4">
         {badges.map((badge, index) => (
-          <div key={index} className="flex items-center gap-4 p-2 rounded-lg bg-background">
-            <div className="p-3 bg-accent/20 rounded-full">
-              <badge.icon className="h-6 w-6 text-accent" />
+          <div key={index} className="flex items-center gap-4 p-2 rounded-lg bg-background/50">
+            <div className="p-3 bg-primary/20 rounded-full">
+              <badge.icon className="h-6 w-6 text-primary" />
             </div>
             <div className="flex-1">
               <p className="font-semibold">{badge.title}</p>

@@ -13,3 +13,9 @@ export type WasteSubmission = {
   points: number;
   status: 'Processed' | 'Pending' | 'On the way';
 };
+
+export type MarketPrice = {
+  type: 'Plastic' | 'E-waste' | 'Paper' | 'Metal' | 'Organic';
+  price: number;
+  trend: 'up' | 'down';
+};
