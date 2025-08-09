@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -67,6 +68,12 @@ export function WasteSubmissionForm() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      image: undefined,
+      category: '',
+      weight: 0,
+      pickupTime: '',
+    },
   });
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
