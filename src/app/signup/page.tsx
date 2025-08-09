@@ -1,17 +1,17 @@
 import { AuthLayout } from '@/components/auth/auth-layout';
-import { LoginForm } from '@/components/auth/login-form';
+import { SignupForm } from '@/components/auth/signup-form';
 
-export default function LoginPage() {
+export default function SignupPage() {
   return (
     <AuthLayout>
       <div className="mx-auto grid w-[350px] gap-6">
         <div className="grid gap-2 text-center">
-          <h1 className="text-3xl font-bold text-primary">Login</h1>
+          <h1 className="text-3xl font-bold text-primary">Create Account</h1>
           <p className="text-balance text-muted-foreground">
-            Enter your email below to login to your account
+            Join our community and start recycling today
           </p>
         </div>
-        <LoginForm />
+        <SignupForm />
       </div>
     </AuthLayout>
   );
