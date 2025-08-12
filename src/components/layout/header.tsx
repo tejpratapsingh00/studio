@@ -25,6 +25,7 @@ export function Header() {
       case '/dashboard/history': return 'History';
       case '/dashboard/rewards': return 'Rewards';
       case '/dashboard/profile': return 'Profile';
+      case '/dashboard/feedback': return 'Feedback';
       default: return 'EcoCollect';
     }
   }
@@ -71,6 +72,9 @@ function MobileHeader() {
           </Link>
           <Link href="/dashboard/profile" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
             Profile
+          </Link>
+           <Link href="/dashboard/feedback" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
+            Feedback
           </Link>
         </nav>
       </SheetContent>

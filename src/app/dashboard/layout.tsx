@@ -9,6 +9,7 @@ import {
   History,
   Trophy,
   User,
+  MessageSquare,
 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -28,6 +29,7 @@ const navItems: NavItem[] = [
   { title: 'History', href: '/dashboard/history', icon: History },
   { title: 'Rewards', href: '/dashboard/rewards', icon: Trophy },
   { title: 'Profile', href: '/dashboard/profile', icon: User },
+  { title: 'Feedback', href: '/dashboard/feedback', icon: MessageSquare },
 ];
 
 export default function DashboardLayout({
@@ -96,7 +98,7 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
       <Header />
       <main className="flex-1 p-4">{children}</main>
       <footer className="fixed bottom-0 left-0 right-0 z-10 border-t bg-card">
-        <nav className="grid grid-cols-5 h-16 items-center">
+        <nav className="grid grid-cols-6 h-16 items-center">
           {navItems.map((item) => (
             <Link
               key={item.href}
