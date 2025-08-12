@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { MapPin } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -35,6 +37,7 @@ const profileSchema = z.object({
 
 export default function ProfilePage() {
   const { toast } = useToast();
+  const [isFetchingLocation, setIsFetchingLocation] = useState(false);
 
   const form = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
@@ -45,6 +48,59 @@ export default function ProfilePage() {
       address: '123 Green St, Nature City, 11001',
     },
   });
+
+  const handleUseCurrentLocation = () => {
+    setIsFetchingLocation(true);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          try {
+            // Using a free reverse geocoding API.
+            // In a real app, you would use a more robust service like Google Maps Geocoding API.
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+            );
+            if (!response.ok) {
+              throw new Error('Failed to fetch address.');
+            }
+            const data = await response.json();
+            if (data && data.display_name) {
+              form.setValue('address', data.display_name, { shouldValidate: true });
+              toast({
+                title: 'Location Updated',
+                description: 'Your pickup address has been set to your current location.',
+              });
+            } else {
+              throw new Error('Could not find address for the location.');
+            }
+          } catch (error) {
+             toast({
+              title: 'Error',
+              description: 'Could not retrieve your address. Please enter it manually.',
+              variant: 'destructive',
+            });
+          } finally {
+            setIsFetchingLocation(false);
+          }
+        },
+        (error) => {
+          toast({
+            title: 'Location Access Denied',
+            description: 'Please enable location services in your browser to use this feature.',
+            variant: 'destructive',
+          });
+          setIsFetchingLocation(false);
+        }
+      );
+    } else {
+      toast({
+        title: 'Geolocation Not Supported',
+        description: 'Your browser does not support geolocation.',
+        variant: 'destructive',
+      });
+      setIsFetchingLocation(false);
+    }
+  };
 
   function onSubmit(values: z.infer<typeof profileSchema>) {
     console.log(values);
@@ -117,7 +173,19 @@ export default function ProfilePage() {
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Pickup Address</FormLabel>
+                  <div className="flex justify-between items-center">
+                    <FormLabel>Pickup Address</FormLabel>
+                    <Button 
+                      type="button"
+                      variant="link" 
+                      className="p-0 h-auto"
+                      onClick={handleUseCurrentLocation}
+                      disabled={isFetchingLocation}
+                    >
+                      <MapPin className="mr-2 h-4 w-4" />
+                      {isFetchingLocation ? 'Fetching...' : 'Use Current Location'}
+                    </Button>
+                  </div>
                   <FormControl>
                     <Input placeholder="Your address for pickups" {...field} />
                   </FormControl>
