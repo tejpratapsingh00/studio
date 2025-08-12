@@ -17,11 +17,11 @@ import {
 import { Button } from '@/components/ui/button';
 
 const leaderboard = [
-  { name: 'Alice', points: 12500, avatar: 'https://placehold.co/40x40.png?text=A' },
-  { name: 'Bob', points: 11200, avatar: 'https://placehold.co/40x40.png?text=B' },
-  { name: 'You', points: 2514, avatar: 'https://placehold.co/40x40.png?text=Y' },
-  { name: 'Charlie', points: 9800, avatar: 'https://placehold.co/40x40.png?text=C' },
-  { name: 'Diana', points: 8500, avatar: 'https://placehold.co/40x40.png?text=D' },
+  { name: 'Alice', points: 12500, avatar: 'https://placehold.co/40x40.png' },
+  { name: 'Bob', points: 11200, avatar: 'https://placehold.co/40x40.png' },
+  { name: 'You', points: 2514, avatar: 'https://placehold.co/40x40.png' },
+  { name: 'Charlie', points: 9800, avatar: 'https://placehold.co/40x40.png' },
+  { name: 'Diana', points: 8500, avatar: 'https://placehold.co/40x40.png' },
 ];
 
 const redeemOptions = [
